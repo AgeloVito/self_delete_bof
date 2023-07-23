@@ -47,5 +47,7 @@ x86 process without manifest
 ## Refences
 
 https://stackoverflow.com/questions/71834608/
+
 https://github.com/LloydLabs/delete-self-poc
+
 https://github.com/LloydLabs/delete-self-poc/pull/4/files
