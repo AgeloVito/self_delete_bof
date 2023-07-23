@@ -20,10 +20,7 @@ beacon> help self_delete
 Use: self_delete [pid|path]
 e.g: self_delete
      self_delete 7956
-     self_delete C:\Users\Administrator\Desktop\test.exe
-
-LloydLabs/jonaslyk self-delete PoC
-delete a locked executable or a currently running file from disk by its pid, path, or the current process.
+     self_delete /path/file.exe
 ```
 self_delete
 
